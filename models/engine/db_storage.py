@@ -60,7 +60,7 @@ class DBStorage:
         return dct
 
     def new(self, obj):
-        """ adds the obj to the current db session """
+        """ method adds the obj to the current db session """
         if obj is not None:
             try:
                 self.__session.add(obj)
