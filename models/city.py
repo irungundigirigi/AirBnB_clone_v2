@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-""" City Module for HBNB project """
-from models.base_model import BaseModel, Base
-from models import storage_type
+""" Defines City Class and its attributes """
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
-
+from models.base_model import BaseModel, Base
+from models import storage_type
 
 class City(BaseModel, Base):
     """ The city class, contains state ID and name """
