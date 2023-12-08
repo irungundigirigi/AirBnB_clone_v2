@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/python3
 # creates archive from the web_static folder
 
 from fabric.api import local
