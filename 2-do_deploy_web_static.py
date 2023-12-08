@@ -6,7 +6,7 @@ from os import path
 from datetime import datetime
 
 
-env.hosts = ['100.25.19.204', '54.157.159.85']
+env.hosts = ['54.162.46.205', '107.23.64.101']
 env.user = 'ubuntu'
 env.key_filename = '~/.ssh/id_rsa'
 
@@ -18,10 +18,10 @@ def do_deploy(archive_path):
                 if not (path.exists(archive_path)):
                         return False
 
-                # upload archive
+                # upload archive to servers /tmp
                 put(archive_path, '/tmp/')
 
-                # create target dir
+                # create target directory
                 timestamp = archive_path[-18:-4]
                 run('sudo mkdir -p /data/web_static/\
 releases/web_static_{}/'.format(timestamp))
