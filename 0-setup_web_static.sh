@@ -2,7 +2,7 @@
 # script sets up webservers for deployment of Airbnb_clone's web static
 sudo apt-get update
 sudo apt-get -y install nginx
-suo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTP'
 
 sudo mkdir -p /data
 sudo mkdir -p /data/web_static/
