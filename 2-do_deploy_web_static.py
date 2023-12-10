@@ -2,9 +2,8 @@
 """Compress web static package
 """
 from fabric.api import *
-from os import path
 from datetime import datetime
-
+from os import path
 
 env.hosts = ['54.162.46.205', '107.23.64.101']
 env.user = 'ubuntu'
@@ -12,16 +11,16 @@ env.key_filename = '~/.ssh/id_rsa'
 
 
 def do_deploy(archive_path):
-        """Deploy web_static to server
+        """Deploy web files to server
         """
         try:
                 if not (path.exists(archive_path)):
                         return False
 
-                # upload archive to servers /tmp
+                # upload archive
                 put(archive_path, '/tmp/')
 
-                # create target directory
+                # create target dir
                 timestamp = archive_path[-18:-4]
                 run('sudo mkdir -p /data/web_static/\
 releases/web_static_{}/'.format(timestamp))
@@ -52,4 +51,6 @@ web_static_{}/ /data/web_static/current'.format(timestamp))
         except:
                 return False
 
-        # return True on success
+        print("New Version deployed!")
+        return True
+
