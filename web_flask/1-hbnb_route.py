@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Flask web application with two routes
+"""
 from flask import Flask
 app = Flask(__name__)
 
