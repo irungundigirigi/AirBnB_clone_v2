@@ -1,10 +1,14 @@
 #!/usr/bin/python3
+"""
+    This module starts a Flask Application
+"""
 
 from flask import Flask
 app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
+    """ Displays 'Hello HBNB' on root URL """
     return "Hello HBNB!"
 
 if __name__ == "__main__":
