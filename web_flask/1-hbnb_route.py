@@ -7,10 +7,12 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def index():
+    """ return 'Hello HBNB!' at route / """
     return "Hello HBNB!"
 
 @app.route('/hbnb')
 def hbnb():
+    """ return "HBNB" at route /hbnb """
     return "HBNB"
 
 
