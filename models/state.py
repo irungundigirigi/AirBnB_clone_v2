@@ -9,14 +9,20 @@ from sqlalchemy.orm import relationship
 
 class State(BaseModel, Base):
     """ State class / table model"""
-    __tablename__ = 'states'
+
     if storage_type == 'db':
+        __tablename__ = 'states'
         name = Column(String(128), nullable=False)
         cities = relationship('City', backref='state',
                               cascade='all, delete, delete-orphan')
     else:
         name = ''
 
+    def __init__(self, *args, **kwargs):
+        """ initializes city """
+        super().__init__(*args, **kwargs)
+
+    if storage_type != "db":
         @property
         def cities(self):
             '''returns the list of City instances with state_id
@@ -30,3 +36,4 @@ class State(BaseModel, Base):
                 if city.state_id == self.id:
                     related_cities.append(city)
             return related_cities
+
